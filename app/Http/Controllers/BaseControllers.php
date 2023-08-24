@@ -9,4 +9,11 @@ use Illuminate\Routing\Controller as BaseController;
 class Controller extends BaseController
 {
     use AuthorizesRequests, ValidatesRequests;
+    private $baseRepostory;
+    public function __construct(baseRepostory $baseRepostory)
+    {
+        $this -> baseRepostory = $baseRepostory;
+    }
 }
+
+
