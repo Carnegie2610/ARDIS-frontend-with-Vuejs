@@ -11,10 +11,15 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('traningandetworking', function (Blueprint $table) {
+        //
+        Schema::create('finance_campaigns', function(Blueprint $table)
+        {
             $table->id();
+            $table->string('financecampaignname');
             $table->timestamps();
+
         });
+
     }
 
     /**
@@ -22,6 +27,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('traningandetworking');
+        //
     }
 };

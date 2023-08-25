@@ -8,4 +8,10 @@ use Illuminate\Database\Eloquent\Model;
 class trend extends Model
 {
     use HasFactory;
+    protected $fillable= [
+        'id',
+        'name',
+        'description',
+        'domain',
+    ];
 }

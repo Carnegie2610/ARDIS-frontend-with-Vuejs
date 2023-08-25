@@ -7,7 +7,7 @@ interface BaseRepositoryInterface
     public function GetAll();
 
 
-    public function GetById($user_id);
+    public function GetFromId( $id);
 
 
     public function Create(array $data);
@@ -17,6 +17,19 @@ interface BaseRepositoryInterface
 
 
     public function delete($id);
+
+    // public function findByEmail($email);
+
+
+    // public function findByName($name);
+
+    // public function getActiveUsers();
+
+    // public function getInactiveUsers();
+
+    // public function getTrainingSession();
+
+    // public function getNetworkingSession();
 
 
 }

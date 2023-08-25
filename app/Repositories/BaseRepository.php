@@ -20,9 +20,9 @@
             return $this->model->all();
          }
          
-         public function GetById($user_id)
+         public function getFromId($id)
          {
-            return $this->model->find($user_id);
+            return $this->model->where('id', $id);
          }
          
          public function create(array $data)
@@ -32,9 +32,9 @@
          
          public function update($id, array $data)
          {
-            $model = $this->getById($id);
+            $model = $this->getFromId($id);
             if ($model){
-                $model->newQuery->update($data);
+                $this->model->newQuery()->update($data);
                 return $model;
             }
          }
@@ -43,8 +43,29 @@
          {
             $model = $this->getById($id);
             if($model){
-                return $model->newQuery->delete();
+                return $model->newQuery()->delete();
             }
          }
+        
+
+
+
+         // public function findByEmail($email)
+         // {
+         //    return $this->model->find($email);
+         // }
+
+
+         // public function findByName($name){}
+     
+         
+     
+         // public function getActiveUsers(){}
+     
+         // public function getInactiveUsers(){}
+     
+         // public function getTrainingSession(){}
+     
+         // public function getNetworkingSession(){}
     }
 ?>

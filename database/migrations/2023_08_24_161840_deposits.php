@@ -11,8 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('trend', function (Blueprint $table) {
+        Schema::create('deposits', function (Blueprint $table) {
             $table->id();
+            $table->integer('investorid');
+            $table->integer('campaignid');
+            $table->integer('amountdeposited');
+            $table->string('varchar');
+            $table->string('password');
             $table->timestamps();
         });
     }
@@ -22,6 +27,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('trend');
+        //
     }
 };

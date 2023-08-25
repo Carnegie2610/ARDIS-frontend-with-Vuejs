@@ -6,16 +6,15 @@
     use App\Contracts\UserInterface;
 
     class UserRepository extends BaseRepository implements UserInterface{
-         
+        // public $userRepository;
        
         
-        public function __construct(User $user)
+        public function __construct(BaseRepository $project)
         {
-            parent::__construct($user);
+            $this->model = $project;
            
         }
        
+
        
     }
-       
-?>
