@@ -22,14 +22,14 @@
          
          public function getFromId($id)
          {
-            return $this->model->where('id', $id);
+            return $this->model->newQuery()->where('id', $id);
          }
          
-         public function create(array $data)
+         public function create($data)
          {
-            return $this->model->create($data);
+            return $this->model->newQuery()->create($data);
          }
-         
+        
          public function update($id, array $data)
          {
             $model = $this->getFromId($id);
@@ -41,9 +41,9 @@
    
          public function delete($id)
          {
-            $model = $this->getById($id);
+            $model = $this->getFromId($id);
             if($model){
-                return $model->newQuery()->delete();
+                return $model->delete();
             }
          }
         

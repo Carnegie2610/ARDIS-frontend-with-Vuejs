@@ -2,6 +2,9 @@
 
 namespace App\Contracts;
 
+use Illuminate\Database\Eloquent\Model;
+use GuzzleHttp\Psr7\Request;
+
 interface BaseRepositoryInterface
 {
     public function GetAll();
@@ -10,13 +13,13 @@ interface BaseRepositoryInterface
     public function GetFromId( $id);
 
 
-    public function Create(array $data);
+    public function Create($data);
 
 
     public function Update($id, array $data);
 
 
-    public function delete($id);
+    public function delete($model);
 
     // public function findByEmail($email);
 
