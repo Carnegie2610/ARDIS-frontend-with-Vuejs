@@ -22,10 +22,10 @@
          
          public function getFromId($id)
          {
-            return $this->model->newQuery()->where('id', $id);
+            return $this->model->newQuery()->find($id);
          }
          
-         public function create($data)
+         public function create($data) : Model
          {
             return $this->model->newQuery()->create($data);
          }

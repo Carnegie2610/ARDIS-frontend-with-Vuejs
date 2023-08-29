@@ -2,9 +2,8 @@
 
 namespace App\Contracts;
 
-interface UserInterface
-{
-   
-}
 
-?>
+interface DepositInterface
+{
+
+}

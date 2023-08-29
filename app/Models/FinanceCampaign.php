@@ -9,7 +9,6 @@ class FinanceCampaign extends Model
 {
     use HasFactory;
     protected $fillable = [
-        'id',
         'financecampaignname',
     ];
 

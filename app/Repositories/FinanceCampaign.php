@@ -3,15 +3,16 @@
     namespace App\Repositories;
     use Illuminate\Database\Eloquent\Model;
     use App\Models\User;
-    use App\Contracts\UserInterface;
+    use App\Contracts\FinanceCampaignInterface;
+    use App\Models\FinanceCampaign;
 
-    class UserRepository extends BaseRepository implements UserInterface{
-        // public $userRepository;
+    class FinanceCmpaignRepository extends BaseRepository implements FinanceCampaignInterface{
+        // public $FinanceCmpaignRepository;
        
         
-        public function __construct(BaseRepository $finCamp)
+        public function __construct(public FinanceCampaign $fincamp)
         {
-            $this->model = $finCamp;
+            
            
         }
        

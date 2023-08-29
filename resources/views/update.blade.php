@@ -7,10 +7,10 @@
 </head>
 <body>
 
-    <h1>Create user</h1>
-    <form action="{{route('usercreate')}}" method="GET">
+    <h1>Update user</h1>
+    <form action="{{route('userupdate')}}" method="patch">
         @csrf
-        @method('GET')
+        @method('patch')
         <div>
             <Label >Name</Label>
             <input type="text" name="name" placeholder=""/>
@@ -39,9 +39,9 @@
             <Label>Password</Label>
             <input type="text" name="password" placeholder=""/>
         </div>
-        <div>
-            <input type="submit" value="save a new user"/>
-        </div>
+        <a href="{{route('userupdate')}}"><input type="submit" value="update"/></a>
+            
+        
     </form>
     
 </body>

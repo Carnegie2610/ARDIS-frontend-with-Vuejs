@@ -2,9 +2,49 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+    use App\Repositories\ProjectRepository;
+    use App\Models\FinanceCampaign;
+    use app\view\indexe;
+    use Illuminate\Http\Request;
+    use Illuminate\View\View;
+    use Illuminate\Support\Facades\Log;
+    use PhpParser\Node\Stmt\TryCatch;
 
-class ProjectController extends Controller
+class UserController extends Controllers
 {
-    //
+    
+    public function __construct(Public ProjectRepository $finance_campaign){
+        
+    } 
+    
+    public function index()
+    {
+    }
+
+    
+    public function getAll()
+    {
+        
+    }
+
+    public function getId()
+    {
+       
+    }
+
+    public function create()
+    {
+        
+    }
+
+    public function update()
+    {
+      
+    }
+
+    public function deleteF()
+    {
+       
+     }
 }
+

@@ -13,7 +13,7 @@ interface BaseRepositoryInterface
     public function GetFromId( $id);
 
 
-    public function Create($data);
+    public function Create($data) : Model;
 
 
     public function Update($id, array $data);

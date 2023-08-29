@@ -6,6 +6,8 @@ use App\Models\User;
 use app\view\indexe;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
+use Illuminate\Support\Facades\Log;
+use PhpParser\Node\Stmt\TryCatch;
 
 class UserController extends Controllers
 {
@@ -16,7 +18,9 @@ class UserController extends Controllers
     
     public function index() : View
     {
+       
         return View('index');
+       
     }
 
     
@@ -30,34 +34,47 @@ class UserController extends Controllers
 
     public function create(Request $request)
     {
-        $data = $request->validate([
+        Log::info('entered the create successfully');
+        try {
+            $data = $request->validate([
             'name' => 'required|string|max:255',
-            'age' => 'required',
-            'location' => 'required',
-            'email' => 'required|email|unique:users',
-            'gender' => 'required',
+            'age' => 'required:user',
+            'gender' => 'required:user',
+            'location' => 'required:user',
+            'email' => 'required|email|unique:user',
             'password' => 'required|min:6',
-            
         ]);
+        } catch (\Throwable $th) {
+            Log::info($th->getMessage());
+            throw $th;
+        }
+        
+      
+        Log::info('Array Filled Successfully');
+        Log::info('Array content: ' . print_r($data, true));
         $newUser = $this->user_repository->create($data);
-        // dd($request);
+
     }
 
     public function update(Request $request, User $user, $id){
-        $validated = $request->validate([
+       try {
+            $data = $request->validate([
             'name' => 'required|string|max:255',
-            'age' => 'required',
-            'location' => 'required',
-            'email' => 'required|email|unique:users',
-            'gender' => 'required',
+            'age' => 'required:user',
+            'gender' => 'required:user',
+            'location' => 'required:user',
+            'email' => 'required|email|unique:user',
             'password' => 'required|min:6',
         ]);
-        $user = $this->user_repository->update($id,$validated);
+        } catch (\Throwable $th) {
+            Log::info($th->getMessage());
+            throw $th;
+        }
+        $user = $this->user_repository->update($id,$data);
     }
 
     public function delete($id)
     {
         $this->user_repository->delete($id);
-   
-     }
+    }
 }

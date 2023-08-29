@@ -3,15 +3,16 @@
     namespace App\Repositories;
     use Illuminate\Database\Eloquent\Model;
     use App\Models\User;
-    use App\Contracts\UserInterface;
+    use App\Contracts\DepositInterface;
+    use App\Models\Deposit;
 
-    class UserRepository extends BaseRepository implements UserInterface{
-        // public $userRepository;
-       
+    class DepositRepository extends BaseRepository implements DepositInterface{
+        // public $DepositRepository;
+       public $model;
         
-        public function __construct(BaseRepository $deposit)
+        public function __construct(public Deposit $deposit)
         {
-            $this->model = $deposit;
+        
            
         }
        

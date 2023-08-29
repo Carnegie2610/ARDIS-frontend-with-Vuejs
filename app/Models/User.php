@@ -21,13 +21,13 @@ class User extends Authenticatable
         'id',
         'name',
         'age',
+        'gender',
         'location',
         'email',
-        'gender',
-
+        'password',
     ];
     protected $guarded = [
-        'password',
+        
     ];
 
     /**

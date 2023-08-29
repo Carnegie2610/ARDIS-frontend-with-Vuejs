@@ -13,19 +13,18 @@ use App\Http\Controllers\UserController;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
-
- 
 // Route::get('/user', [Controller::class, 'show']);
 Route::get('/', function () {
     return view('welcome');
 });
 Route::get('/user', [UserController::class, 'index']);
+Route::get('/userupdate', function(){return view('update');});
 
 Route::get('/getAll', [UserController::class, 'getAll']);
 Route::get('/getId/{id}', [UserController::class, 'getId']);
-Route::post('/create', [UserController::class, 'create'])->name('usercreate');
-Route::patch('/update/{user}/update', [UserController::class, 'update']);
-Route::delete('/delete/{user}/delete', [UserController::class, 'delete']);
+Route::POST('/create', [UserController::class, 'create'])->name('usercreate');
+Route::patch('/update/{user}/update', [UserController::class, 'update'])->name('userupdate');
+Route::get('/delete/{id}', [UserController::class, 'delete']);
 
 
 // Route::get('/dashboard', function () {

@@ -3,15 +3,18 @@
     namespace App\Repositories;
     use Illuminate\Database\Eloquent\Model;
     use App\Models\User;
-    use App\Contracts\UserInterface;
+    use App\Contracts\ProjectInterface;
+    use App\Models\Project;
 
-    class UserRepository extends BaseRepository implements UserInterface{
-        // public $userRepository;
+    class ProjectRepository extends BaseRepository implements ProjectInterface
+    
+    {
+        // public $ProjectRepository;
        
         
-        public function __construct(BaseRepository $project)
+        public function __construct(public Project $project)
         {
-            $this->model = $project;
+            
            
         }
        
